@@ -1,7 +1,10 @@
 const Hapi = require("hapi");
 const path = require("path");
 const vision = require("@google-cloud/vision");
-const visionGenerators = require("./lib/googleVisionGenerators");
+const exiftool = require("node-exiftool");
+const exiftoolBin = require("dist-exiftool");
+// const visionGenerators = require("./lib/googleVisionGenerators");
+const exifGenerator = require("./lib/exifImageData");
 require("dotenv").config();
 
 // terminate the service if the google cloud credentials environment variable is not set
@@ -11,12 +14,22 @@ if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
 }
 
 // create a new instance of the vision client to be shared across the service
-const client = new vision.ImageAnnotatorClient();
+// const client = new vision.ImageAnnotatorClient();
+const exif = new exiftool.ExiftoolProcess(exiftoolBin);
 
 // google cloud vision
-const getImageProperties = visionGenerators.getImagePropertiesGenerator(client);
+// const getImageProperties = visionGenerators.getImagePropertiesGenerator(client);
+// const getImageLabels = visionGenerators.getImageLabelsGenerator(client);
+// const getImageSearches = visionGenerators.getImageSearchesGenerator(client);
+// const getImageDocumentText = visionGenerators.getImageDocumentTextGenerator(
+//   client
+// );
+// const getImageText = visionGenerators.getImageTextGenerator(client);
 
-const fileName = path.join(__dirname, "../static/images/adidas-shoe.jpeg");
+// exif image data
+const getExifData = exifGenerator.getExifImageData(exif);
+
+const fileName = path.join(__dirname, "../static/images/gps.JPG");
 
 const server = Hapi.server({
   port: 3000,
@@ -36,14 +49,21 @@ process.on("unhandledRejection", error => {
 server.route({
   method: "GET",
   path: "/",
-  handler: () => {
-    const promises = [getImageProperties(fileName)];
+  handler: async () => {
+    const promises = [
+      // getImageProperties(fileName),
+      // getImageLabels(fileName)
+      // getImageSearches(fileName)
+      // getImageDocumentText(fileName)
+      // getImageText(fileName)
+      getExifData(fileName)
+    ];
 
-    Promise.all(promises)
-      .then(result => console.log(result))
-      .catch(errors => console.error(errors));
+    const results = await Promise.all(promises).catch(errors =>
+      console.error(errors)
+    );
 
-    return "Hi";
+    return results;
   }
 });
 

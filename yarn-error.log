@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/Frencis/.nvm/versions/node/v9.2.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js start
+  /Users/Frencis/.nvm/versions/node/v9.2.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js add node-exif
 
 PATH: 
   /Users/Frencis/.nvm/versions/node/v9.2.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:~/.composer/vendor/bin
@@ -26,13 +26,17 @@ npm manifest:
     },
     "dependencies": {
       "@google-cloud/vision": "^0.19.0",
+      "dotenv": "^6.0.0",
       "hapi": "^17.5.1"
     },
     "devDependencies": {
       "eslint": "^4.19.1",
       "eslint-config-airbnb-base": "^12.1.0",
+      "eslint-config-prettier": "^2.9.0",
       "eslint-plugin-import": "^2.12.0",
-      "nodemon": "^1.17.5"
+      "eslint-plugin-prettier": "^2.6.0",
+      "nodemon": "^1.17.5",
+      "prettier": "^1.13.5"
     }
   }
 
@@ -821,6 +825,10 @@ Lockfile:
     dependencies:
       is-obj "^1.0.0"
   
+  dotenv@^6.0.0:
+    version "6.0.0"
+    resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.0.0.tgz#24e37c041741c5f4b25324958ebbc34bca965935"
+  
   duplexer3@^0.1.4:
     version "0.1.4"
     resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
@@ -894,6 +902,12 @@ Lockfile:
     dependencies:
       eslint-restricted-globals "^0.1.1"
   
+  eslint-config-prettier@^2.9.0:
+    version "2.9.0"
+    resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.9.0.tgz#5ecd65174d486c22dff389fe036febf502d468a3"
+    dependencies:
+      get-stdin "^5.0.1"
+  
   eslint-import-resolver-node@^0.3.1:
     version "0.3.2"
     resolved "https://registry.yarnpkg.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.2.tgz#58f15fb839b8d0576ca980413476aab2472db66a"
@@ -922,6 +936,13 @@ Lockfile:
       minimatch "^3.0.3"
       read-pkg-up "^2.0.0"
       resolve "^1.6.0"
+  
+  eslint-plugin-prettier@^2.6.0:
+    version "2.6.0"
+    resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-2.6.0.tgz#33e4e228bdb06142d03c560ce04ec23f6c767dd7"
+    dependencies:
+      fast-diff "^1.1.1"
+      jest-docblock "^21.0.0"
   
   eslint-restricted-globals@^0.1.1:
     version "0.1.1"
@@ -1104,6 +1125,10 @@ Lockfile:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.1.0.tgz#c053477817c86b51daa853c81e059b733d023614"
   
+  fast-diff@^1.1.1:
+    version "1.1.2"
+    resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.1.2.tgz#4b62c42b8e03de3f848460b639079920695d0154"
+  
   fast-glob@^2.0.2:
     version "2.2.2"
     resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-2.2.2.tgz#71723338ac9b4e0e2fff1d6748a2a13d5ed352bf"
@@ -1248,6 +1273,10 @@ Lockfile:
       axios "^0.18.0"
       extend "^3.0.1"
       retry-axios "0.3.2"
+  
+  get-stdin@^5.0.1:
+    version "5.0.1"
+    resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-5.0.1.tgz#122e161591e21ff4c52530305693f20e6393a398"
   
   get-stream@^3.0.0:
     version "3.0.0"
@@ -1819,6 +1848,10 @@ Lockfile:
   isstream@~0.1.2:
     version "0.1.2"
     resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
+  
+  jest-docblock@^21.0.0:
+    version "21.2.0"
+    resolved "https://registry.yarnpkg.com/jest-docblock/-/jest-docblock-21.2.0.tgz#51529c3b30d5fd159da60c27ceedc195faf8d414"
   
   joi@13.x.x:
     version "13.4.0"
@@ -2547,6 +2580,10 @@ Lockfile:
   prepend-http@^1.0.1:
     version "1.0.4"
     resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
+  
+  prettier@^1.13.5:
+    version "1.13.5"
+    resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.5.tgz#7ae2076998c8edce79d63834e9b7b09fead6bfd0"
   
   process-nextick-args@~2.0.0:
     version "2.0.0"
@@ -3408,16 +3445,14 @@ Lockfile:
       y18n "^3.2.0"
 
 Trace: 
-  Error: Command failed.
-  Exit code: 127
-  Command: sh
-  Arguments: -c nodemon
-  Directory: /Users/Frencis/Documents/adidas-hackathon/adidas-hackathon
-  Output:
-  
-      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:30281:17)
-      at ChildProcess.emit (events.js:159:13)
-      at maybeClose (internal/child_process.js:943:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
+  Error: https://registry.yarnpkg.com/node-exif: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:65019:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:132430:22)
+      at Request.emit (events.js:159:13)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:133413:10)
+      at Request.emit (events.js:159:13)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:133333:12)
+      at Object.onceWrapper (events.js:254:19)
+      at IncomingMessage.emit (events.js:164:20)
+      at endReadableNT (_stream_readable.js:1054:12)
+      at _combinedTickCallback (internal/process/next_tick.js:138:11)

@@ -3,16 +3,24 @@ const getImagePropertiesGenerator = client => fileName =>
     const properties = results[0].imagePropertiesAnnotation;
     const { colors } = properties.dominantColors;
 
-    return colors;
+    return colors.slice(0, 5).map(c => {
+      const { color } = c;
+
+      return [
+        color.red,
+        color.green,
+        color.blue,
+        color.alpha === null ? 0 : c.alpha
+      ];
+    });
   });
 
 const getImageLabelsGenerator = client => fileName =>
-  client.labelDetection(fileName).then(results => {
-    const labels = results[0].labelAnnotations;
-    console.log("Labels:");
-
-    return labels;
-  });
+  client
+    .labelDetection(fileName)
+    .then(results =>
+      results[0].labelAnnotations.map(label => label.description)
+    );
 
 const getImageSearchesGenerator = client => fileName =>
   client.webDetection(fileName).then(results => {
@@ -21,7 +29,7 @@ const getImageSearchesGenerator = client => fileName =>
     if (webDetection.webEntities.length) {
       console.log(`Web entities found: ${webDetection.webEntities.length}`);
 
-      return webDetection.webEntities;
+      return webDetection.webEntities.map(entity => entity.description);
     }
 
     return null;
@@ -29,18 +37,23 @@ const getImageSearchesGenerator = client => fileName =>
 
 const getImageDocumentTextGenerator = client => fileName =>
   client.documentTextDetection(fileName).then(results => {
-    const {
-      fullTextAnnotation: { text }
-    } = results[0];
-
-    return text;
+    if (results[0].fullTextAnnotation) {
+      const {
+        fullTextAnnotation: { text }
+      } = results[0];
+      return text;
+    }
+    return null;
   });
 
 const getImageTextGenerator = client => fileName =>
   client.textDetection(fileName).then(results => {
+    console.log(results);
     const { textAnnotations } = results[0];
 
-    return textAnnotations;
+    return textAnnotations
+      .slice(1, textAnnotations.length - 1)
+      .map(ocr => ocr.description);
   });
 
 module.exports = {
