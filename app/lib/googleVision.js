@@ -1,3 +1,4 @@
+// gets image properties such as: dominent colors
 const getImageProperties = (fileName) => {
   process.client
     .imageProperties(fileName)
@@ -11,6 +12,7 @@ const getImageProperties = (fileName) => {
     });
 };
 
+// gets image labels such as: footwear, black, white, tennisshoe, sneakers
 const getImageLabels = (fileName) => {
   process.client
     .labelDetection(fileName)
@@ -24,6 +26,7 @@ const getImageLabels = (fileName) => {
     });
 };
 
+// gets a simular image searches
 const getImageSearches = (fileName) => {
   process.client
     .webDetection(fileName)
@@ -43,6 +46,7 @@ const getImageSearches = (fileName) => {
     });
 };
 
+// gets text from inside the image
 const getImageDocumentText = (fileName) => {
   process.client
     .documentTextDetection(fileName)
