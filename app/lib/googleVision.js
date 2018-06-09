@@ -43,7 +43,7 @@ const getImageSearches = (fileName) => {
     });
 };
 
-const getImageText = (fileName) => {
+const getImageDocumentText = (fileName) => {
   process.client
     .documentTextDetection(fileName)
     .then((results) => {
@@ -55,10 +55,24 @@ const getImageText = (fileName) => {
     });
 };
 
+const getImageText = (fileName) => {
+  process.client
+    .textDetection(fileName)
+    .then((results) => {
+      const { textAnnotations } = results[0];
+      console.log('Text:');
+      textAnnotations.forEach(text => console.log(text));
+    })
+    .catch((err) => {
+      console.error('ERROR:', err);
+    });
+};
+
 module.exports = {
   getImageProperties,
   getImageLabels,
   getImageSearches,
+  getImageDocumentText,
   getImageText,
 };
 
