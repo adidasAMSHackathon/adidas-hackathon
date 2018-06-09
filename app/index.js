@@ -15,4 +15,10 @@ process.on('unhandledRejection', (err) => {
   process.exit(1);
 });
 
+server.route({
+  method: 'GET',
+  path: '/',
+  handler: (request, h) => 'Hello!',
+});
+
 init();
