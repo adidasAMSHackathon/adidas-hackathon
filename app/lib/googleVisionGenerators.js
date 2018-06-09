@@ -50,9 +50,11 @@ const generateCloudVisionFunctions = (client, fileName) => ({
     client.textDetection(fileName).then(results => {
       const { textAnnotations } = results[0];
 
-      return textAnnotations
+      const annotations = textAnnotations
         .slice(1, textAnnotations.length - 1)
         .map(ocr => ocr.description);
+
+      return annotations.length > 0 ? annotations : null;
     })
 });
 

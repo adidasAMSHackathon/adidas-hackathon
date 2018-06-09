@@ -1,3 +1,6 @@
+const generateCloudVisionFunctions = require("./../lib/googleVisionGenerators");
+const vision = require("@google-cloud/vision");
+const uploadImage = require("./../lib/uploadImage");
 require("dotenv").config();
 
 // terminate the service if the google cloud credentials environment variable is not set
@@ -6,15 +9,8 @@ if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
   process.exit(1);
 }
 
-const vision = require("@google-cloud/vision");
-const visionGenerators = require("./../lib/googleVisionGenerators");
-const uploadImage = require("./../lib/uploadImage");
-
 // create a new instance of the vision client to be shared across the service
 const client = new vision.ImageAnnotatorClient();
-
-// google cloud vision functions
-const generateCloudVisionFunctions = require("./../lib/googleVisionGenerators");
 
 module.exports = () => ({
   method: "POST",
@@ -26,10 +22,11 @@ module.exports = () => ({
     },
     handler: async request => {
       // upload the image so we can work on it
-      const targetName = await uploadImage(request);
+      const { destination: imageFile } = await uploadImage(request);
 
-      const gcf = generateCloudVisionFunctions(client, targetName);
+      const gcf = generateCloudVisionFunctions(client, imageFile);
 
+      // collection of all the data fetches we need from cloud vision
       const promises = [
         gcf.getImageProperties(),
         gcf.getImageLabels(),
@@ -39,7 +36,7 @@ module.exports = () => ({
       ];
 
       // await all promises
-      const results = await Promise.all(promises).catch(err => err);
+      const results = await Promise.all(promises).catch(errors => errors);
 
       // return {
       //   imageURL: `${server.info.uri}/${targetName}`

@@ -27,5 +27,5 @@ module.exports = async request => {
     return Boom.internal("Error saving the image.");
   });
 
-  return targetName;
+  return { targetName, destination };
 };
