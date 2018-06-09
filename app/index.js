@@ -1,6 +1,7 @@
 const Hapi = require('hapi');
 const path = require('path');
 const vision = require('@google-cloud/vision');
+const visionGenerators = require('./lib/googleVisionGenerators');
 require('dotenv').config();
 
 // terminate the service if the google cloud credentials environment variable is not set
@@ -13,7 +14,7 @@ if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
 const client = new vision.ImageAnnotatorClient();
 
 // google cloud vision
-const getImageProperties = require('./lib/googleVision').getImagePropertiesGenerator(client);
+const getImageProperties = visionGenerators.getImagePropertiesGenerator(client);
 
 const fileName = path.join(__dirname, '../static/images/adidas-shoe.jpeg');
 
@@ -35,13 +36,15 @@ process.on('unhandledRejection', (err) => {
 server.route({
   method: 'GET',
   path: '/',
-  handler: (request, h) => {
+  handler: () => {
     const imagePropertiesPromise = getImageProperties(fileName);
 
     Promise.all([
       imagePropertiesPromise,
     ]).then((result) => {
       console.log(result);
+    }).catch((errors) => {
+      console.error(errors);
     });
 
     return 'Hi';
