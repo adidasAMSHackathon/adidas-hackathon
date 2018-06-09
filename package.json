@@ -1,0 +1,8 @@
+{
+  "name": "adidas-hackathon",
+  "version": "1.0.0",
+  "description": "I Adidas back-end",
+  "main": "index.js",
+  "repository": "https://github.com/FrencisAlreadyInUse/adidas-hackathon",
+  "license": "MIT"
+}
