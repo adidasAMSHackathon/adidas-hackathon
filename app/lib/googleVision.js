@@ -1,5 +1,5 @@
-const getImageProperties = (fileName) => {
-  process.client
+const getImagePropertiesGenerator = client => (fileName) => {
+  client
     .imageProperties(fileName)
     .then((results) => {
       const properties = results[0].imagePropertiesAnnotation;
@@ -11,8 +11,8 @@ const getImageProperties = (fileName) => {
     });
 };
 
-const getImageLabels = (fileName) => {
-  process.client
+const getImageLabelsGenerator = client => (fileName) => {
+  client
     .labelDetection(fileName)
     .then((results) => {
       const labels = results[0].labelAnnotations;
@@ -24,8 +24,8 @@ const getImageLabels = (fileName) => {
     });
 };
 
-const getImageSearches = (fileName) => {
-  process.client
+const getImageSearchesGenerator = client => (fileName) => {
+  client
     .webDetection(fileName)
     .then((results) => {
       const { webDetection } = results[0];
@@ -43,8 +43,8 @@ const getImageSearches = (fileName) => {
     });
 };
 
-const getImageDocumentText = (fileName) => {
-  process.client
+const getImageDocumentTextGenerator = client => (fileName) => {
+  client
     .documentTextDetection(fileName)
     .then((results) => {
       const { fullTextAnnotation } = results[0];
@@ -55,8 +55,8 @@ const getImageDocumentText = (fileName) => {
     });
 };
 
-const getImageText = (fileName) => {
-  process.client
+const getImageTextGenerator = client => (fileName) => {
+  client
     .textDetection(fileName)
     .then((results) => {
       const { textAnnotations } = results[0];
@@ -69,10 +69,10 @@ const getImageText = (fileName) => {
 };
 
 module.exports = {
-  getImageProperties,
-  getImageLabels,
-  getImageSearches,
-  getImageDocumentText,
-  getImageText,
+  getImagePropertiesGenerator,
+  getImageLabelsGenerator,
+  getImageSearchesGenerator,
+  getImageDocumentTextGenerator,
+  getImageTextGenerator,
 };
 
