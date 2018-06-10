@@ -29,6 +29,7 @@ module.exports = server => ({
       const gcf = generateCloudVisionFunctions(client, systemImagePath);
 
       // collection of all the data fetches we need from cloud vision
+      // and also the current weather and location
       const promises = [
         gcf.getImageProperties(),
         gcf.getImageLabels(),
@@ -54,9 +55,8 @@ module.exports = server => ({
         "location"
       ].forEach((label, index) => {
         if (index === 0) {
-          response[label] = `${process.env.URI ||
-            server.info.uri ||
-            ""}/${imagePath}`;
+          const uri = process.env.URI || server.info.uri || "";
+          response[label] = `${uri}/${imagePath}`;
         } else {
           response[label] = results[index - 1];
         }
