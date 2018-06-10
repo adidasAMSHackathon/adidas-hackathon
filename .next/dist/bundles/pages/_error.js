@@ -67,12 +67,40 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
 
-/***/ "./pages/_error.js":
+module.exports = require("react");
+
+/***/ }),
+/* 1 */,
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("next/head");
+
+/***/ }),
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(13);
+
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -81,19 +109,18 @@ module.exports =
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = "/Users/Frencis/Documents/adidas-hackathon/adidas-hackathon/pages/_error.js";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__("react");
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _httpStatus = __webpack_require__("http-status");
+var _httpStatus = __webpack_require__(14);
 
 var _httpStatus2 = _interopRequireDefault(_httpStatus);
 
-var _head = __webpack_require__("next/head");
+var _head = __webpack_require__(2);
 
 var _head2 = _interopRequireDefault(_head);
 
@@ -123,61 +150,27 @@ var Error = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        { style: styles.error, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 17
-          }
-        },
+        { style: styles.error },
         _react2.default.createElement(
           _head2.default,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 18
-            }
-          },
-          _react2.default.createElement("meta", { name: "viewport", content: "width=device-width, initial-scale=1.0", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 19
-            }
-          })
+          null,
+          _react2.default.createElement("meta", { name: "viewport", content: "width=device-width, initial-scale=1.0" })
         ),
         _react2.default.createElement(
           "div",
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 21
-            }
-          },
-          _react2.default.createElement("style", { dangerouslySetInnerHTML: { __html: "body { margin: 0 }" }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 22
-            }
-          }),
+          null,
+          _react2.default.createElement("style", { dangerouslySetInnerHTML: { __html: "body { margin: 0 }" } }),
           statusCode ? _react2.default.createElement(
             "h1",
-            { style: styles.h1, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 23
-              }
-            },
+            { style: styles.h1 },
             statusCode
           ) : null,
           _react2.default.createElement(
             "div",
-            { style: styles.desc, __source: {
-                fileName: _jsxFileName,
-                lineNumber: 24
-              }
-            },
+            { style: styles.desc },
             _react2.default.createElement(
               "h2",
-              { style: styles.h2, __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 25
-                }
-              },
+              { style: styles.h2 },
               title,
               "."
             )
@@ -243,35 +236,10 @@ var styles = {
 };
 
 /***/ }),
-
-/***/ 1:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./pages/_error.js");
-
-
-/***/ }),
-
-/***/ "http-status":
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("http-status");
 
-/***/ }),
-
-/***/ "next/head":
-/***/ (function(module, exports) {
-
-module.exports = require("next/head");
-
-/***/ }),
-
-/***/ "react":
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
 /***/ })
-
-/******/ });
-//# sourceMappingURL=_error.js.map
+/******/ ]);

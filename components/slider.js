@@ -8,22 +8,21 @@ export default class extends React.Component {
     current: 0,
     content: [
       {
-        description: "Start by scanning your environment",
+        description: "Start by scanning your environment, drawing, texture or anything. You decide!",
         image: "/static/images/content/02.jpg"
       },
       {
-        description: "Scanning 02",
-        image: "/static/images/content/05.jpg"
+        description: "I-Adidas will create a shoe based on your input.",
+        image: "/static/images/content/03-01.jpg"
       },
       {
-        description: "Scanning 03",
-        image: "/static/images/content/02.jpg"
+        description: "Enter your I-Adidas key to make it the perfect fit.",
+        image: "/static/images/content/03-b.jpg"
       },
     ]
   }
 
   handlePreviousImage = () => {
-    console.log("handlePreviousImage");
     const {current, content} = this.state;
 
     let nextCurrent = current - 1;
@@ -36,12 +35,11 @@ export default class extends React.Component {
   };
 
   handleNextImage = () => {
-    console.log("handleNextImage");
     const {current, content} = this.state;
 
     let nextCurrent = current + 1;
 
-    if (nextCurrent >= content.length) {
+    if (nextCurrent >= content.length - 1) {
       nextCurrent %= content.length;
     }
 
@@ -65,4 +63,3 @@ export default class extends React.Component {
     );
   }
 }
-

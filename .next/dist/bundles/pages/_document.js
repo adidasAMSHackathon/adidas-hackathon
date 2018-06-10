@@ -67,12 +67,30 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
 
-/***/ "./pages/_document.js":
+module.exports = require("react");
+
+/***/ }),
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(8);
+
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -82,23 +100,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _regenerator = __webpack_require__("babel-runtime/regenerator");
+var _regenerator = __webpack_require__(9);
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
-var _jsxFileName = "/Users/Frencis/Documents/adidas-hackathon/adidas-hackathon/pages/_document.js";
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__("react");
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _document = __webpack_require__("next/document");
+var _document = __webpack_require__(10);
 
 var _document2 = _interopRequireDefault(_document);
 
-var _server = __webpack_require__("styled-jsx/server");
+var _server = __webpack_require__(11);
 
 var _server2 = _interopRequireDefault(_server);
 
@@ -128,55 +144,19 @@ var MyDocument = function (_Document) {
       var envScript = "window.ENV = '" + (process.env.WILD_ENV || "development") + "';";
       return _react2.default.createElement(
         "html",
-        { lang: "en", __source: {
-            fileName: _jsxFileName,
-            lineNumber: 15
-          }
-        },
+        { lang: "en" },
         _react2.default.createElement(
           _document.Head,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 16
-            }
-          },
-          _react2.default.createElement("meta", { name: "viewport", content: "initial-scale=1.0, width=device-width", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 17
-            }
-          }),
-          _react2.default.createElement("link", { rel: "shortcut icon", href: "/static/favicon.png", __source: {
-              fileName: _jsxFileName,
-              lineNumber: 18
-            }
-          }),
-          _react2.default.createElement("script", { dangerouslySetInnerHTML: { __html: envScript }, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 19
-            }
-          })
+          null,
+          _react2.default.createElement("meta", { name: "viewport", content: "initial-scale=1.0, width=device-width" }),
+          _react2.default.createElement("link", { rel: "shortcut icon", href: "/static/favicon.png" }),
+          _react2.default.createElement("script", { dangerouslySetInnerHTML: { __html: envScript } })
         ),
         _react2.default.createElement(
           "body",
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 21
-            }
-          },
-          _react2.default.createElement(_document.Main, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 22
-            }
-          }),
-          _react2.default.createElement(_document.NextScript, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 23
-            }
-          })
+          null,
+          _react2.default.createElement(_document.Main, null),
+          _react2.default.createElement(_document.NextScript, null)
         )
       );
     }
@@ -212,42 +192,22 @@ var MyDocument = function (_Document) {
 exports.default = MyDocument;
 
 /***/ }),
-
-/***/ 0:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./pages/_document.js");
-
-
-/***/ }),
-
-/***/ "babel-runtime/regenerator":
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/regenerator");
 
 /***/ }),
-
-/***/ "next/document":
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = require("next/document");
 
 /***/ }),
-
-/***/ "react":
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-
-/***/ "styled-jsx/server":
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = require("styled-jsx/server");
 
 /***/ })
-
-/******/ });
-//# sourceMappingURL=_document.js.map
+/******/ ]);
