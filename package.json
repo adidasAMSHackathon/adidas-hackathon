@@ -6,16 +6,19 @@
   "repository": "https://github.com/FrencisAlreadyInUse/adidas-hackathon",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon"
+    "dev": "nodemon .",
+    "start": "node ."
   },
   "dependencies": {
     "@google-cloud/vision": "^0.19.0",
-    "dist-exiftool": "^10.53.0",
-    "node-exiftool": "^2.3.0",
     "boom": "^7.2.0",
+    "dist-exiftool": "^10.53.0",
     "dotenv": "^6.0.0",
+    "fs-extra": "^6.0.1",
     "hapi": "^17.5.1",
     "inert": "^5.1.0",
+    "node-exiftool": "^2.3.0",
+    "node-fetch": "^2.1.2",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
