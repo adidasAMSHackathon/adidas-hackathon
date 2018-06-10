@@ -1,11 +1,11 @@
 import React from "react";
-import SectionHeader from "./section-header";
+import Slider from "./slider";
 import styles from "./section.scss";
 
 export default () => {
   return (
-    <section className={`flex cnw section how-it-works`}>
-      <SectionHeader title={`How it works`} description={`Start by scanning your environment.`} />
+    <section className={`flex cnw aic section how-it-works`}>
+      <Slider />
       <style jsx>{styles}</style>
     </section>
   );

@@ -1,0 +1,29 @@
+.slider-content {
+  position: relative;
+}
+
+.slider__image {
+  box-shadow: 1px 5px 48px -7px rgba(0,0,0,0.24);
+  width: 60%;
+  height: auto;
+}
+
+.button {
+  width: 46px;
+  height: 46px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 4rem;
+  z-index: 9999;
+
+  &--left__image {
+    transform: rotate(180deg);
+  }
+
+  &--right {
+    right: 4rem;
+    left: auto;
+  }
+}
