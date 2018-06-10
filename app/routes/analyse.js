@@ -48,7 +48,9 @@ module.exports = server => ({
         "ocr"
       ].forEach((label, index) => {
         if (index === 0) {
-          response[label] = `${server.info.uri}/${imagePath}`;
+          response[label] = `${process.env.URI ||
+            server.info.uri ||
+            ""}/${imagePath}`;
         } else {
           response[label] = results[index - 1];
         }
