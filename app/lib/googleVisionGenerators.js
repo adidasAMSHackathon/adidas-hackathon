@@ -13,7 +13,7 @@ const generateCloudVisionFunctions = (client, fileName) => ({
           color.green,
           color.blue,
           color.alpha === null ? 0 : c.alpha
-        ];
+        ].join(",");
       });
     }),
 

@@ -12,37 +12,38 @@ if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
 // create a new instance of the vision client to be shared across the service
 const client = new vision.ImageAnnotatorClient();
 
-module.exports = () => ({
+module.exports = server => ({
   method: "POST",
   path: "/analyse",
-  config: {
-    payload: {
-      output: "file",
-      parse: true
-    },
-    handler: async request => {
-      // upload the image so we can work on it
-      const { destination: imageFile } = await uploadImage(request);
+  handler: async request => {
+    // upload the image so we can work on it
+    const { imagePath, systemImagePath } = await uploadImage(request, server);
 
-      const gcf = generateCloudVisionFunctions(client, imageFile);
+    const gcf = generateCloudVisionFunctions(client, systemImagePath);
 
-      // collection of all the data fetches we need from cloud vision
-      const promises = [
-        gcf.getImageProperties(),
-        gcf.getImageLabels(),
-        gcf.getImageSearches(),
-        gcf.getImageDocumentText(),
-        gcf.getImageText()
-      ];
+    // collection of all the data fetches we need from cloud vision
+    const promises = [
+      gcf.getImageProperties(),
+      gcf.getImageLabels(),
+      gcf.getImageSearches(),
+      gcf.getImageDocumentText(),
+      gcf.getImageText()
+    ];
 
-      // await all promises
-      const results = await Promise.all(promises).catch(errors => errors);
+    // await all promises
+    const results = await Promise.all(promises).catch(errors => errors);
 
-      // return {
-      //   imageURL: `${server.info.uri}/${targetName}`
-      // };
+    const response = {};
+    ["imageUrl", "colors", "labels", "searches", "documentText", "ocr"].forEach(
+      (label, index) => {
+        if (index === 0) {
+          response[label] = `${server.info.uri}/${imagePath}`;
+        } else {
+          response[label] = results[index - 1];
+        }
+      }
+    );
 
-      return results;
-    }
+    return response;
   }
 });

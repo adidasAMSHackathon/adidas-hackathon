@@ -4,21 +4,21 @@ const Inert = require("inert");
 const uploadsRoute = require("./routes/uploads");
 const analyseRoute = require("./routes/analyse");
 
+// handle all "unhandled" rejections so the server doesn't crash
+process.on("unhandledRejection", error => {
+  console.log(error);
+  process.exit(1);
+});
+
 // create a new server
 const server = Hapi.server({
   port: 3000,
   host: "localhost",
   routes: {
     files: {
-      relativeTo: path.join(__dirname, "public")
+      relativeTo: path.join(__dirname, "uploads")
     }
   }
-});
-
-// handle all "unhandled" rejections so the server doesn't crash
-process.on("unhandledRejection", error => {
-  console.log(error);
-  process.exit(1);
 });
 
 // start the server
