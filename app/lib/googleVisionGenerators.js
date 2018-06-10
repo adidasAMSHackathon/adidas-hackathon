@@ -29,7 +29,9 @@ const generateCloudVisionFunctions = (client, fileName) => ({
       const { webDetection } = results[0];
 
       if (webDetection.webEntities.length) {
-        return webDetection.webEntities.map(entity => entity.description);
+        return webDetection.webEntities
+          .map(entity => entity.description)
+          .filter(entity => entity !== "");
       }
 
       return null;

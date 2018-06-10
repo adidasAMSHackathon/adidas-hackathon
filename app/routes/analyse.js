@@ -15,35 +15,46 @@ const client = new vision.ImageAnnotatorClient();
 module.exports = server => ({
   method: "POST",
   path: "/analyse",
-  handler: async request => {
-    // upload the image so we can work on it
-    const { imagePath, systemImagePath } = await uploadImage(request, server);
+  config: {
+    payload: {
+      output: "file",
+      parse: true
+    },
+    handler: async request => {
+      // upload the image so we can work on it
+      const { imagePath, systemImagePath } = await uploadImage(request, server);
 
-    const gcf = generateCloudVisionFunctions(client, systemImagePath);
+      const gcf = generateCloudVisionFunctions(client, systemImagePath);
 
-    // collection of all the data fetches we need from cloud vision
-    const promises = [
-      gcf.getImageProperties(),
-      gcf.getImageLabels(),
-      gcf.getImageSearches(),
-      gcf.getImageDocumentText(),
-      gcf.getImageText()
-    ];
+      // collection of all the data fetches we need from cloud vision
+      const promises = [
+        gcf.getImageProperties(),
+        gcf.getImageLabels(),
+        gcf.getImageSearches(),
+        gcf.getImageDocumentText(),
+        gcf.getImageText()
+      ];
 
-    // await all promises
-    const results = await Promise.all(promises).catch(errors => errors);
+      // await all promises
+      const results = await Promise.all(promises).catch(errors => errors);
 
-    const response = {};
-    ["imageUrl", "colors", "labels", "searches", "documentText", "ocr"].forEach(
-      (label, index) => {
+      const response = {};
+      [
+        "imageUrl",
+        "colors",
+        "labels",
+        "searches",
+        "documentText",
+        "ocr"
+      ].forEach((label, index) => {
         if (index === 0) {
           response[label] = `${server.info.uri}/${imagePath}`;
         } else {
           response[label] = results[index - 1];
         }
-      }
-    );
+      });
 
-    return response;
+      return response;
+    }
   }
 });
