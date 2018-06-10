@@ -1,10 +1,7 @@
-const fs = require("fs");
+const fsExtra = require("fs-extra");
 const path = require("path");
-const { promisify } = require("util");
 const Boom = require("boom");
 const uuid = require("uuid/v4");
-
-const fsRename = promisify(fs.rename);
 
 module.exports = async request => {
   // make sure we have an image to work with
@@ -22,9 +19,9 @@ module.exports = async request => {
   const systemImagePath = path.join(__dirname, `../${imagePath}`);
 
   // move the uplaoded image to it's final destination in the public folder
-  await fsRename(tempSystemImagePath, systemImagePath).catch(error => {
-    console.error(error);
-    process.exit();
+  await fsExtra.move(tempSystemImagePath, systemImagePath).catch(error => {
+    if (error) console.log(error);
+    process.exit(1);
   });
 
   return {
