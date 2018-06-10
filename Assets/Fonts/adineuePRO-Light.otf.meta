@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: b156e9061ae904daf8f5bbcf03a6d72b
+timeCreated: 1528610085
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: adineue PRO
+  fontNames:
+  - adineue PRO
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 92a0d87083b1747adbc71895574c004a, type: 3}
+  - {fileID: 12800000, guid: 48a99954c425e488e90b447f47b8f7dd, type: 3}
+  - {fileID: 12800000, guid: 62af7829be4294c2897d7e56dff595ac, type: 3}
+  - {fileID: 12800000, guid: 006a4ddbe464144b188a5188975301d6, type: 3}
+  - {fileID: 12800000, guid: 0043f96ea83c04844845d8708cc91d42, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

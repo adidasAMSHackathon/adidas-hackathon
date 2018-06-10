@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: ffa0d7f8f32174ed592efa55fcf365a6
+timeCreated: 1528610086
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: AdihausDIN
+  fontNames:
+  - AdihausDIN
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 53c77a30dea84450f83b536c348c0a6e, type: 3}
+  - {fileID: 12800000, guid: 0e0de4b09cb554834bf12e6aaa468a81, type: 3}
+  - {fileID: 12800000, guid: bda724f45a17246de9a1305d4133f368, type: 3}
+  - {fileID: 12800000, guid: ded60f16d117646bb9a930de11edefd4, type: 3}
+  - {fileID: 12800000, guid: 00bd2248a916f4f7eb4e2cc3420a96ee, type: 3}
+  - {fileID: 12800000, guid: f6a57fc95da4b449daaa1cbed614e09f, type: 3}
+  - {fileID: 12800000, guid: 38ebe8d94064049ef829d18131b852f5, type: 3}
+  - {fileID: 12800000, guid: 5b58adea62fac487f950161d72f81119, type: 3}
+  - {fileID: 12800000, guid: da8ceb6d9355e47bfbf9b18d176c63b9, type: 3}
+  - {fileID: 12800000, guid: 4bc4b6ce7dfc8445c928c9570d6fb259, type: 3}
+  - {fileID: 12800000, guid: d1c981ff1e0ff4259a15cbb52658fad8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 5b58adea62fac487f950161d72f81119
+timeCreated: 1528610084
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: AdihausDIN
+  fontNames:
+  - AdihausDIN
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 53c77a30dea84450f83b536c348c0a6e, type: 3}
+  - {fileID: 12800000, guid: 0e0de4b09cb554834bf12e6aaa468a81, type: 3}
+  - {fileID: 12800000, guid: 00bd2248a916f4f7eb4e2cc3420a96ee, type: 3}
+  - {fileID: 12800000, guid: 38ebe8d94064049ef829d18131b852f5, type: 3}
+  - {fileID: 12800000, guid: 4bc4b6ce7dfc8445c928c9570d6fb259, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
