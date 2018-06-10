@@ -18,6 +18,7 @@
     "hapi": "^17.5.1",
     "inert": "^5.1.0",
     "node-exiftool": "^2.3.0",
+    "node-fetch": "^2.1.2",
     "uuid": "^3.2.1"
   },
   "devDependencies": {

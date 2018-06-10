@@ -1,6 +1,8 @@
 const generateCloudVisionFunctions = require("./../lib/googleVisionGenerators");
 const vision = require("@google-cloud/vision");
 const uploadImage = require("./../lib/uploadImage");
+const getWeather = require("./../lib/getWeather");
+const getLocation = require("./../lib/getLocation");
 require("dotenv").config();
 
 // terminate the service if the google cloud credentials environment variable is not set
@@ -32,7 +34,9 @@ module.exports = server => ({
         gcf.getImageLabels(),
         gcf.getImageSearches(),
         gcf.getImageDocumentText(),
-        gcf.getImageText()
+        gcf.getImageText(),
+        getWeather(),
+        getLocation()
       ];
 
       // await all promises
@@ -45,7 +49,9 @@ module.exports = server => ({
         "labels",
         "searches",
         "documentText",
-        "ocr"
+        "ocr",
+        "temperature",
+        "location"
       ].forEach((label, index) => {
         if (index === 0) {
           response[label] = `${process.env.URI ||
