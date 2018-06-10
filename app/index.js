@@ -29,5 +29,7 @@ const server = Hapi.server({
 
   await server.start();
 
+  console.log(server.info);
+
   console.log(`Server running at: ${server.info.uri}`);
 })();
