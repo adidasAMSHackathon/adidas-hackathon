@@ -26,6 +26,7 @@ module.exports = server => ({
       // upload the image so we can work on it
       const { imagePath, systemImagePath } = await uploadImage(request, server);
 
+      // generate cloud vision functions (inject client and systemImagePath)
       const gcf = generateCloudVisionFunctions(client, systemImagePath);
 
       // collection of all the data fetches we need from cloud vision
@@ -43,6 +44,7 @@ module.exports = server => ({
       // await all promises
       const results = await Promise.all(promises).catch(errors => errors);
 
+      // add labels to the data for the response
       const response = {};
       [
         "imageUrl",
@@ -55,8 +57,7 @@ module.exports = server => ({
         "location"
       ].forEach((label, index) => {
         if (index === 0) {
-          const uri = process.env.URI || server.info.uri || "";
-          response[label] = `${uri}/${imagePath}`;
+          response[label] = `${process.serviceUrl}/${imagePath}`;
         } else {
           response[label] = results[index - 1];
         }

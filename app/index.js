@@ -24,6 +24,8 @@ const server = Hapi.server({
 (async () => {
   await server.register(Inert);
 
+  // register the route for analysing images
+  // and for serving them
   server.route(uploadsRoute(server));
   server.route(analyseRoute(server));
 
@@ -31,5 +33,7 @@ const server = Hapi.server({
 
   console.log(server.info);
 
-  console.log(`Server running at: ${server.info.uri}`);
+  process.serviceUrl = process.env.URI || server.info.uri || "";
+
+  console.log(`Server running at: ${process.serviceUrl}`);
 })();

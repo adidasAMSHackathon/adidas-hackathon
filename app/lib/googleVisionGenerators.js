@@ -1,5 +1,4 @@
 const generateCloudVisionFunctions = (client, fileName) => ({
-  //
   getImageProperties: () =>
     client.imageProperties(fileName).then(results => {
       const properties = results[0].imagePropertiesAnnotation;
