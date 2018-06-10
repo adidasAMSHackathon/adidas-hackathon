@@ -1,5 +1,4 @@
 node_modules
-app/public/uploads/images/*
 key.json
 .vscode
 .DS_Store
