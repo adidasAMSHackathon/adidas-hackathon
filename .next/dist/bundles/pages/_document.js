@@ -146,7 +146,7 @@ var MyDocument = function (_Document) {
               lineNumber: 17
             }
           }),
-          _react2.default.createElement("link", { rel: "shortcut icon", href: "/static/favicon.ico", __source: {
+          _react2.default.createElement("link", { rel: "shortcut icon", href: "/static/favicon.png", __source: {
               fileName: _jsxFileName,
               lineNumber: 18
             }
